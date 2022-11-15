@@ -3,3 +3,29 @@
   padding: 0px;
   font-family: 'Raleway', sans-serif;
 }
+
+body,
+html {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #F7F7F9;
+}
+
+img {
+  max-width: 100%;
+  border: none;
+}
+
+button {
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  background-color: #E72129;
+  border-radius: 2rem;
+}
+
+button:hover {
+  background-color: #e72128cc;
+  transition: .4s;
+}
