@@ -1,10 +1,13 @@
 import './App.css'
 
+import Welcome from './components/welcome/Welcome'
+
 function App() {
 
   return (
     <div className="App">
-      <h1>Pokedex</h1>
+      <Welcome />
+
     </div>
   )
 }
