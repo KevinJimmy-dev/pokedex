@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
       {location.pathname != "/" && (
         <nav id="navbar">
-          <Link to="/">
+          <Link to="/pokedex">
             <div className="logo">
               <img
                 src={Logo}
