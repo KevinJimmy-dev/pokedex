@@ -25,14 +25,16 @@ const PokeCard = (props) => {
         <Container>
           <h2>{firstUpperCase(pokemon.name)}</h2>
 
-          {pokemon.types.length > 0 &&
-            pokemon.types.map((type, index) => {
-              return (
-                <div key={index} className="pokemon-type">
-                  {firstUpperCase(type.type.name)}
-                </div>
-              );
-            })}
+          <div className="types">
+            {pokemon.types.length > 0 &&
+              pokemon.types.map((type, index) => {
+                return (
+                  <div key={index} className={`pokemon-type ${type.type.name}`}>
+                    {firstUpperCase(type.type.name)}
+                  </div>
+                );
+              })}
+          </div>
         </Container>
       </div>
     </div>
