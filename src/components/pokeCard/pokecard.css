@@ -3,8 +3,12 @@
   padding: 1.5rem;
   width: 15rem;
   height: 8rem;
-  border: 1px solid #000;    
   display: inline-flex;
+  background-color: #e1ddddd1;
+  border: 1px solid #918989;
+  -webkit-box-shadow: 9px 10px 5px -3px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 9px 10px 5px -3px rgba(0, 0, 0, 0.07);
+  box-shadow: 9px 10px 5px -3px rgba(0, 0, 0, 0.07);
 }
 
 .card .card-body {
@@ -82,33 +86,33 @@
 }
 
 .fighting {
-    background-color: #C03028;
+  background-color: #c03028;
 }
 
 .psychic {
-    background-color: #F85888;
+  background-color: #f85888;
 }
 
 .rock {
-    background-color: #B8A038;
+  background-color: #b8a038;
 }
 
 .ice {
-    background-color: #98D8D8;
+  background-color: #98d8d8;
 }
 
 .dragon {
-    background-color: #7038F8;
+  background-color: #7038f8;
 }
 
 .ghost {
-    background-color: #705898;
+  background-color: #705898;
 }
 
 .dark {
-    background-color: #705848;
+  background-color: #705848;
 }
 
 .steal {
-    background-color: #B8B8D0;
+  background-color: #b8b8d0;
 }
