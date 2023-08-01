@@ -49,6 +49,12 @@ const Navbar = () => {
     setSearch(e.target.value);
   };
 
+  const onKeyPressHandler = async (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+    }
+  };
+
   return (
     <>
       {location.pathname !== "/" && (
@@ -67,6 +73,7 @@ const Navbar = () => {
                 placeholder="Busque por um Pokémon"
                 value={search}
                 onChange={onChangeHandler}
+                onKeyDown={onKeyPressHandler}
               />
               <button>{<HiOutlineSearchCircle size="30" />}</button>
             </form>
