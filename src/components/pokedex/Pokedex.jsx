@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getPokemonData, getPokemons } from "../../api";
 
 import Container from "../container/Container";
@@ -7,11 +7,26 @@ import PokeCard from "../pokeCard/PokeCard";
 import Spinner from "../spinner/Spinner";
 
 import "./pokedex.css";
+import { AppContext } from "../../AppContext";
 
 const Pokedex = () => {
+  const { sharedData } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    if (!sharedData?.pokemon) {
+      fetchPokemons()
+    }
+
+    if (sharedData.pokemon !== "" && sharedData.pokemon !== null) {
+      setPokemons([sharedData.pokemon])
+      setPage(0)
+      setTotalPages(1)
+    }
+    
+  }, [sharedData])
 
   const itemsPerPage = 25;
 

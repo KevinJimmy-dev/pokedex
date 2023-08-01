@@ -7,8 +7,6 @@ import "./pokecard.css";
 const PokeCard = (props) => {
   const { pokemon } = props;
 
-  console.log(pokemon);
-
   return (
     <div className="card">
       <div className="card-body">
