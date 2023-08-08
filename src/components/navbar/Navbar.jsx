@@ -5,11 +5,13 @@ import { Link, useLocation } from "react-router-dom";
 import { searchPokemon } from "../../api";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../AppContext";
+import { Alert, Snackbar } from "@mui/material";
 
 const Navbar = () => {
   const location = useLocation();
   const { sharedData, setSharedData } = useContext(AppContext);
   const [search, setSearch] = useState("");
+  const [isActionTriggered, setIsActionTriggered] = useState(false);
 
   useEffect(() => {
     let searchTimer;
@@ -17,29 +19,29 @@ const Navbar = () => {
     const searchPokemonWithDebounce = async () => {
       if (search === "" || search === null) {
         setSharedData({});
-
+        setIsActionTriggered(false);
         return;
       }
 
-      let pokemon = await searchPokemon(search);
+      let pokemon = await searchPokemon(search.toLowerCase());
 
       if (pokemon) {
         setSharedData({ pokemon });
-      } 
-
-      if (!pokemon) {
-        console.log("não encontrado");
+        setIsActionTriggered(true);
+      } else {
+        setIsActionTriggered(false);
       }
     };
 
     if (search !== "") {
-        searchTimer = setTimeout(() => {
-          searchPokemonWithDebounce();
+      searchTimer = setTimeout(() => {
+        searchPokemonWithDebounce();
       }, 300);
     }
 
     if (search === "" || search === null) {
-      setSharedData({})
+      setSharedData({});
+      setIsActionTriggered(true);
     }
 
     return () => clearTimeout(searchTimer);
@@ -51,7 +53,7 @@ const Navbar = () => {
 
   const onKeyPressHandler = async (e) => {
     if (e.key === "Enter") {
-      e.preventDefault()
+      e.preventDefault();
     }
   };
 
@@ -61,7 +63,10 @@ const Navbar = () => {
         <nav id="navbar">
           <Link to="/pokedex">
             <div className="logo">
-              <img src={Logo} alt="Pokedex vermelha original da cidade de Kanto" />
+              <img
+                src={Logo}
+                alt="Pokedex vermelha original da cidade de Kanto"
+              />
               <h1>Pokédex</h1>
             </div>
           </Link>
@@ -71,13 +76,33 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Busque por um Pokémon"
+                id="search"
                 value={search}
                 onChange={onChangeHandler}
                 onKeyDown={onKeyPressHandler}
+                style={{
+                  border: isActionTriggered
+                    ? "2px solid black"
+                    : "2px solid yellow",
+                }}
               />
               <button>{<HiOutlineSearchCircle size="30" />}</button>
             </form>
           </div>
+
+          {!isActionTriggered && (
+            <>
+              <Snackbar
+                open={open}
+                autoHideDuration={1}
+                message="Pokémon não encontrado..."
+              >
+                <Alert variant="filled" severity="error">
+                  Pokemon não encontrado...
+                </Alert>
+              </Snackbar>
+            </>
+          )}
         </nav>
       )}
     </>
