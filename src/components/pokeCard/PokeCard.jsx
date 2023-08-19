@@ -1,14 +1,23 @@
+import { useContext, useEffect, useState } from "react";
 import { firstUpperCase } from "../../utils";
 
 import Container from "../container/Container";
 
 import "./pokecard.css";
+import PokeDetail from "../pokeDetail/pokeDetail";
+import { AppContext } from "../../AppContext";
 
 const PokeCard = (props) => {
   const { pokemon } = props;
+  const { sharedData } = useContext(AppContext);
+  const [openDetailModal, setOpenDetailModal] = useState(false)
+
+  const handleClick = () => {
+    setOpenDetailModal(true)
+  }
 
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <div className="card-body">
         <img
           src={
@@ -35,6 +44,7 @@ const PokeCard = (props) => {
           </div>
         </Container>
       </div>
+      {openDetailModal && <PokeDetail open={openDetailModal} pokemon={pokemon} />}
     </div>
   );
 };
