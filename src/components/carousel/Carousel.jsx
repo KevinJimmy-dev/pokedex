@@ -98,7 +98,8 @@ const Carousel = (props) => {
                   display: "block",
                   overflow: "hidden",
                   width: "40%",
-                  marginLeft: "26%"
+                  marginLeft: "26%",
+                  margin: "auto"
                 }}
                 src={sprite.path}
                 alt={sprite.label}

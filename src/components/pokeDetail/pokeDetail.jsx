@@ -7,6 +7,7 @@ import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Container } from "@mui/system";
 import Carousel from "../carousel/Carousel";
+import Stat from "../stats/Stat";
 
 const PokeDetail = (props) => {
   const { sharedData, setSharedData } = React.useContext(AppContext);
@@ -54,16 +55,24 @@ const PokeDetail = (props) => {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Container sx={{ marginTop: "5rem" }}>
-          <Grid container spacing={2}>
-            <Grid xs={6} md={8}>
+        <Container sx={{ marginTop: "5rem", alignContent: "flex-start" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box sx={{ width: "40%", minWidth: "300px" }}>
               <Carousel sprites={pokemon.sprites} />
-            </Grid>
-            <Grid xs={6} md={4}></Grid>
-              
-            <Grid xs={6} md={4}></Grid>
-            <Grid xs={6} md={8}></Grid>
-          </Grid>
+            </Box>
+            <Box sx={{ width: "35%", minWidth: "300px" }}>
+              <Stat stats={pokemon.stats} />
+            </Box>
+          </Box>
         </Container>
       </Dialog>
     </div>
