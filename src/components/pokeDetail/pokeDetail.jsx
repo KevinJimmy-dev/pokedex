@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Box, Container } from "@mui/system";
 import Carousel from "../carousel/Carousel";
 import Stat from "../stats/Stat";
+import Types from "../types/Types";
 
 const PokeDetail = (props) => {
   const { sharedData, setSharedData } = React.useContext(AppContext);
@@ -68,8 +69,9 @@ const PokeDetail = (props) => {
           >
             <Box sx={{ width: "40%", minWidth: "300px" }}>
               <Carousel sprites={pokemon.sprites} />
+              <Types types={pokemon.types} />
             </Box>
-            <Box sx={{ width: "35%", minWidth: "300px" }}>
+            <Box sx={{ width: "40%", minWidth: "300px" }}>
               <Stat stats={pokemon.stats} />
             </Box>
           </Box>

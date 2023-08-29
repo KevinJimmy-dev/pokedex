@@ -13,10 +13,10 @@ const Carousel = (props) => {
 
   const sprites = [
     {
-      "path": props.sprites.versions["generation-v"]["black-white"].animated
-      .front_default,
-      "label": "black-white animated"
-    }
+      path: props.sprites.versions["generation-v"]["black-white"].animated
+        .front_default,
+      label: "black-white animated",
+    },
   ];
 
   const processSprites = (spritesObj) => {
@@ -28,11 +28,11 @@ const Carousel = (props) => {
         });
       }
 
-      if (key === 'versions') {
+      if (key === "versions") {
         Object.keys(spritesObj[key]).forEach((key2) => {
           Object.keys(spritesObj[key][key2]).forEach((key3) => {
             Object.keys(spritesObj[key][key2][key3]).forEach((key4) => {
-              if (keysHasValue.includes(key4) && key3 !== 'icons') {
+              if (keysHasValue.includes(key4) && key3 !== "icons") {
                 sprites.push({
                   path: spritesObj[key][key2][key3][key4],
                   label: key3,
@@ -99,7 +99,7 @@ const Carousel = (props) => {
                   overflow: "hidden",
                   width: "40%",
                   marginLeft: "26%",
-                  margin: "auto"
+                  margin: "auto",
                 }}
                 src={sprite.path}
                 alt={sprite.label}
@@ -109,6 +109,13 @@ const Carousel = (props) => {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
