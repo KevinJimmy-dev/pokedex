@@ -9,6 +9,7 @@ import { Box, Container } from "@mui/system";
 import Carousel from "../carousel/Carousel";
 import Stat from "../stats/Stat";
 import Types from "../types/Types";
+import Moves from "../moves/Moves";
 
 const PokeDetail = (props) => {
   const { sharedData, setSharedData } = React.useContext(AppContext);
@@ -71,8 +72,22 @@ const PokeDetail = (props) => {
               <Carousel sprites={pokemon.sprites} />
               <Types types={pokemon.types} />
             </Box>
-            <Box sx={{ width: "40%", minWidth: "300px" }}>
+            <Box sx={{ width: "40%", minWidth: "300px", marginTop: "1.5rem" }}>
               <Stat stats={pokemon.stats} />
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box sx={{ width: "40%", minWidth: "300px" }}>
+              <Moves moves={pokemon.moves} />
             </Box>
           </Box>
         </Container>

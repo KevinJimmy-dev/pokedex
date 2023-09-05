@@ -2,7 +2,7 @@ const apiUrl = import.meta.env.VITE_API;
 
 export const searchPokemon = async (pokemon) => {
     try {
-        const response = await fetch(`${apiUrl}/${pokemon}`)
+        const response = await fetch(`${apiUrl}/pokemon/${pokemon}`)
 
         return await response.json()
     } catch (error) {
@@ -12,7 +12,7 @@ export const searchPokemon = async (pokemon) => {
 
 export const getPokemons = async (limit = 50, offset = 0) => {
     try {
-        const response = await fetch(`${apiUrl}?limit=${limit}&offset=${offset}`)
+        const response = await fetch(`${apiUrl}/pokemon?limit=${limit}&offset=${offset}`)
 
         return await response.json()
     } catch (error) {
@@ -20,7 +20,7 @@ export const getPokemons = async (limit = 50, offset = 0) => {
     }
 }
 
-export const getPokemonData = async (url) => {
+export const getData = async (url) => {
     try {
         const response = await fetch(url)
 

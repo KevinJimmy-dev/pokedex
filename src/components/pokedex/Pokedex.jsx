@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getPokemonData, getPokemons } from "../../api";
+import { getData, getPokemons } from "../../api";
 
 import Container from "../container/Container";
 import Pagination from "../pagination/Pagination";
@@ -51,7 +51,7 @@ const Pokedex = () => {
       const data = await getPokemons(itemsPerPage, itemsPerPage * page);
 
       const promises = data.results.map(async (pokemon) => {
-        return await getPokemonData(pokemon.url);
+        return await getData(pokemon.url);
       });
 
       const results = await Promise.all(promises);

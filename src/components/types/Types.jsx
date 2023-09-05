@@ -10,12 +10,13 @@ const Types = (props) => {
         flexDirection: "row",
         alignItems: "center",
         gap: "0.5rem",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginTop: "0.6rem"
       }}
     >
       {props.types.length > 0 &&
         props.types.map((type, index) => {
-          return <Type type={type} index={index} />;
+          return <Type type={type.type.name} index={index} />;
         })}
     </Container>
   );

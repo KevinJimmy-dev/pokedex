@@ -53,7 +53,7 @@ const Type = (props) => {
       case "dark":
         return "#705848";
         break;
-      case "steal":
+      case "steel":
         return "#b8b8d0";
         break;
       case "electric":
@@ -73,11 +73,11 @@ const Type = (props) => {
         borderRadius: "1rem",
         fontWeight: "bold",
         color: "white",
-        backgroundColor: selectTheme(props.type.type.name),
+        backgroundColor: selectTheme(props.type),
         textAlign: "center"
       }}
     >
-      {firstUpperCase(props.type.type.name)}
+      {firstUpperCase(props.type)}
     </Box>
   );
 };
