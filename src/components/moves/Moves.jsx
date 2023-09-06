@@ -11,7 +11,7 @@ const Moves = (props) => {
         bgcolor: "background.paper",
         position: "relative",
         overflow: "auto",
-        maxHeight: 300,
+        maxHeight: 487,
         "& ul": { padding: 0 },
         marginTop: "1.5rem"
       }}

@@ -22,12 +22,6 @@ const Move = (props) => {
   const [open, setOpen] = React.useState(false);
   const [moveDetail, setMoveDetail] = React.useState(null);
 
-  const returnIcon = (type) => {
-    if (type == "grass") {
-      return <GrassIcon />;
-    }
-  };
-
   const handleClick = () => {
     setOpen(!open);
   };

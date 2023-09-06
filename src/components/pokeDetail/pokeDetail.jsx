@@ -10,6 +10,7 @@ import Carousel from "../carousel/Carousel";
 import Stat from "../stats/Stat";
 import Types from "../types/Types";
 import Moves from "../moves/Moves";
+import Curiosities from "../curiosities/Curiosities";
 
 const PokeDetail = (props) => {
   const { sharedData, setSharedData } = React.useContext(AppContext);
@@ -88,6 +89,9 @@ const PokeDetail = (props) => {
           >
             <Box sx={{ width: "40%", minWidth: "300px" }}>
               <Moves moves={pokemon.moves} />
+            </Box>
+            <Box sx={{ width: "40%", minWidth: "300px" }}>
+              <Curiosities curiosities={pokemon.species} />
             </Box>
           </Box>
         </Container>
