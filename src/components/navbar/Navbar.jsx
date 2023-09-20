@@ -5,7 +5,14 @@ import { Link, useLocation } from "react-router-dom";
 import { searchPokemon } from "../../api";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../AppContext";
-import { Alert, Snackbar } from "@mui/material";
+import {
+  Alert,
+  AppBar,
+  Box,
+  Snackbar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,8 +21,6 @@ const Navbar = () => {
   const [isActionTriggered, setIsActionTriggered] = useState(false);
 
   useEffect(() => {
-    let searchTimer;
-
     const searchPokemonWithDebounce = async () => {
       if (search === "" || search === null) {
         setSharedData({});
@@ -33,63 +38,65 @@ const Navbar = () => {
       }
     };
 
-    if (search !== "") {
-      searchTimer = setTimeout(() => {
+    setTimeout(() => {
+      if (search !== "") {
         searchPokemonWithDebounce();
-      }, 300);
-    }
+      }
 
-    if (search === "" || search === null) {
-      setSharedData({});
-      setIsActionTriggered(true);
-    }
-
-    return () => clearTimeout(searchTimer);
+      if (search === "" || search === null) {
+        setSharedData({});
+        setIsActionTriggered(true);
+      }
+    }, 500);
   }, [search]);
 
   const onChangeHandler = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const onKeyPressHandler = async (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-    }
+    setTimeout(() => {
+      setSearch(e.target.value);
+    }, 500);
   };
 
   return (
     <>
       {location.pathname !== "/" && (
-        <nav id="navbar">
-          <Link to="/pokedex">
-            <div className="logo">
-              <img
-                src={Logo}
-                alt="Pokedex vermelha original da cidade de Kanto"
-              />
-              <h1>Pokédex</h1>
-            </div>
-          </Link>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static" sx={{ backgroundColor: "#e72129" }}>
+            <Toolbar>
+              <Link to="/pokedex">
+                <Box sx={{ marginLeft: "0.5rem", display: "flex" }}>
+                  <img
+                    src={Logo}
+                    width="75px"
+                    style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}
+                  />
+                </Box>
+              </Link>
 
-          <div id="search">
-            <form action="">
-              <input
-                type="text"
-                placeholder="Search for Pokémon"
-                id="search"
-                value={search}
-                onChange={onChangeHandler}
-                onKeyDown={onKeyPressHandler}
-                style={{
-                  border: isActionTriggered
-                    ? "2px solid black"
-                    : "2px solid yellow",
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", sm: "block" },
+                  marginLeft: "0.5rem",
                 }}
-              />
-              <button>{<HiOutlineSearchCircle size="30" />}</button>
-            </form>
-          </div>
+              >
+                Pokedex
+              </Typography>
 
+              <div id="search">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    onChange={onChangeHandler}
+                  />
+                  <button>{<HiOutlineSearchCircle size="30" />}</button>
+                </div>
+              </div>
+            </Toolbar>
+          </AppBar>
           {!isActionTriggered && (
             <>
               <Snackbar
@@ -103,7 +110,7 @@ const Navbar = () => {
               </Snackbar>
             </>
           )}
-        </nav>
+        </Box>
       )}
     </>
   );
