@@ -36,14 +36,13 @@ const PokeDetail = (props) => {
                 fontSize={"1.5rem"}
                 marginTop={"0.5rem"}
               >
-                Detalhe do Pokémon{" "}
                 <Typography
                   variant="caption"
                   display=""
                   gutterBottom
                   fontSize={"1.5rem"}
                 >
-                  {firstUpperCase(pokemon.name)}
+                  {firstUpperCase(pokemon.name)} Pokémon Detail
                 </Typography>
               </Typography>
             </Box>

@@ -77,7 +77,7 @@ const Carousel = (props) => {
         }}
       >
         <Typography>
-          <b>Versão:</b> {labelVersionPokemon(sprites[activeStep].label)}
+          <b>Version:</b> {labelVersionPokemon(sprites[activeStep].label)}
         </Typography>
       </Paper>
       <AutoPlaySwipeableViews

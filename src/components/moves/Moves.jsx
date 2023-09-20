@@ -19,7 +19,7 @@ const Moves = (props) => {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          <Typography fontSize={"1.5rem"} color={"#000"}>Movimentos</Typography>
+          <Typography fontSize={"1.5rem"} color={"#000"}>Movies</Typography>
         </ListSubheader>
       }
     >

@@ -75,7 +75,7 @@ const Navbar = () => {
             <form action="">
               <input
                 type="text"
-                placeholder="Busque por um Pokémon"
+                placeholder="Search for Pokémon"
                 id="search"
                 value={search}
                 onChange={onChangeHandler}

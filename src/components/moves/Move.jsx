@@ -68,7 +68,7 @@ const Move = (props) => {
                   <MdOutlineLowPriority style={{ width: "2rem", height: "2rem" }}/>
                 </ListItemIcon>
                 <ListItemText
-                  primary="Prioridade"
+                  primary="Priority"
                   secondary={moveDetail.priority ?? "-"}
                 />
               </ListItemButton>
@@ -77,7 +77,7 @@ const Move = (props) => {
                   <GiLaserPrecision style={{ width: "2rem", height: "2rem" }} />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Precisão"
+                  primary="Precision"
                   secondary={moveDetail.accuracy ?? "-"}
                 />
               </ListItemButton>
@@ -92,7 +92,7 @@ const Move = (props) => {
                   <GiBroadsword style={{ width: "2rem", height: "2rem" }} />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Poder"
+                  primary="Power"
                   secondary={moveDetail.power ?? "-"}
                 />
               </ListItemButton>
