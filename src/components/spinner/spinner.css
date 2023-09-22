@@ -1,0 +1,41 @@
+.pokebola-spinner {
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
+    border: 8px solid black;
+    border-radius: 50%;
+    position: relative;
+    animation: anim 1s linear infinite;
+}
+
+.pokebola-spinner::before {
+    position: absolute;
+    height: 8px;
+    width: 92px;
+    background: black;
+    top: 50%;
+    content: '';
+    transform: translateY(-50%);
+}
+
+.pokebola-spinner::after {
+    position: absolute;
+    content: '';
+    height: 38px;
+    width: 38px;
+    top: 42px;
+    left: 42px;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+}
+
+@keyframes anim {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
